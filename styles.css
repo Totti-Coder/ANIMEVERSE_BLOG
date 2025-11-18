@@ -311,6 +311,99 @@ footer ul a:hover {
     margin-top: 3rem;  
 }
 
+
+/* SEARCH */
+.search__bar {
+    margin-top:7rem;
+}
+
+.search__bar-container {
+    position: relative;
+    width: 30rem;
+    background: var(--color-gray-900);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 0.6rem 1rem;
+    border-radius: var(--card-border-radius-2);
+    color: var(--color-gray-300);
+}
+
+.search__bar-container > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search__bar input {
+    background: transparent;
+    margin-left: 0.7rem;
+    padding: 0.5rem 0rem;
+    width: 100%;
+    color: var(--color-white);
+}
+
+.search__bar input::placeholder {
+    color: var(--color-gray-300);
+}
+
+/* BUTTON STYLE */
+.btn {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.4rem 0.7rem;
+    background-color: var(--primary-color-variant);
+    border-radius: var(--card-border-radius-2);
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--color-white);
+    font-size: 1.3rem;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-color);
+    font-weight: bold;
+    transition: var(--transition);
+}
+
+/* SINGLE POST */
+.singlepost {
+    margin: 6rem 0rem 2rem;
+}
+
+.singlepost__container {
+    width: var(--form-width);
+    background: var(--color-gray-900);
+    padding: 1rem 2rem 2rem;
+}
+
+.singlepost__container p {
+    margin-top: 1rem;
+    line-height: 1.7rem;
+}
+
+.singlepost__thumbnail {
+    margin: 1.5rem 0 1rem;
+}
+
+
+/* CATEGORY POSTS */
+.category__title {
+    height: 15rem;
+    margin-top: 4.5rem;
+    background-color: var(--color-gray-900);
+    display: grid;
+    place-items: center;
+}
+
+
+
+
+
+
+
 /* MEDIA QUERIES (MEDIUM DEVICES) */ 
 @media screen and (max-width: 1024px) {
     /* GENERAL */
@@ -435,6 +528,11 @@ footer ul a:hover {
     .footer__socials {
         margin-bottom: 2.5rem;
     }
+
+    /* BLOG */
+    .search__bar-container {
+        width: 60%;
+    }
 }
 
 
@@ -471,3 +569,15 @@ footer ul a:hover {
         text-align: center;
         gap: 2rem;
     }
+
+    /* BLOG */
+    .search__bar-container {
+        width: var(--container-width-md);
+    }
+
+    /* SINGLE POST */
+    .singlepost__container {
+        background-color: transparent;
+        padding: 0;
+    }
+}
