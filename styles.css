@@ -187,6 +187,10 @@ nav button {
 }
 
 /* General Post */
+.post {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
 .post__thumbnail {
     border-radius: var(--card-border-radius-5) 0;
     border: 1rem solid var(--color-gray-900);
@@ -210,6 +214,9 @@ nav button {
     height: 2.5rem;
     border-radius: var(--card-border-radius-3);
     overflow: hidden;
+}
+.post__body {
+    margin-bottom:1rem;
 }
 
 /* FEATURED */
@@ -398,8 +405,75 @@ footer ul a:hover {
     place-items: center;
 }
 
+/* Empty Pages */
+.empty__page{
+    height: 70vh;
+    text-align: center;
+    display: grid;
+    place-items: center;
+}
 
+/* GENERAL FORMS */
+.form__section {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
 
+.form__section-container {
+    width: var(--form-width);
+}
+
+.alert__message {
+    padding: 0.8rem 1.4rem;
+    margin-bottom: 1rem;
+    border-radius: var(--card-border-radius-2);
+}
+
+.alert__message.error {
+    background: var(--color-red-light);
+    color: var(--color-red);
+}
+
+.alert__message.success {
+    background: var(--color-green-light);
+    color: var(--color-green);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form__control {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+input, textarea, select {
+    padding: 0.8rem 1.4rem;
+    background-color: var(--color-gray-900);
+    border-radius: var(--card-border-radius-2);
+    resize: none;
+    color: var(--color-white);
+}
+
+.form__section .btn{
+    font-size: 14px;
+    padding: 0.7rem;
+}
+
+.form__section small {
+    margin-top: 1rem;
+    display: block;
+    margin-top: -0.1rem;
+}
+
+.form__section small a{
+    color: var(--primary-color);
+}
 
 
 
