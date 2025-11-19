@@ -32,7 +32,6 @@
     padding: 0;
     outline: 0;
     border: 0;
-    appearance: none;
     list-style:none;
     text-decoration: none;
     font-family: "Montserrat", sans-serif;
@@ -154,6 +153,8 @@ nav button {
     visibility: hidden;
     opacity: 0;
     transition: var(--transition);
+    border-radius: var(--card-border-radius-2); /* AÑADIR ESTO */
+    overflow: hidden; /* AÑADIR ESTO */
 }
 
 /* Show nav ul when nav profile is hovered */
@@ -167,6 +168,7 @@ nav button {
     background: var(--bg-color);
     display: block;
     width: 100%;
+    box-sizing: border-box; 
 }
 
 .nav__profile ul li:last-child a {
@@ -334,6 +336,7 @@ footer ul a:hover {
     width: 30rem;
     background: var(--color-gray-900);
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
@@ -426,11 +429,8 @@ footer ul a:hover {
     height: 100vh;
     width: 100vw;
     padding: 2.5rem;
-    overflow: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
     box-sizing: border-box;
+    margin-top: 3rem;
 }
 
 .form__section-container {
@@ -587,7 +587,7 @@ select:hover {
 }
 
 textarea {
-    resize: vertical;
+    resize: none;
     min-height: 120px;
 }
 
@@ -598,7 +598,7 @@ textarea {
     border: none;
     border-radius: 0.8rem;
     color: var(--color-white);
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 300ms ease;
@@ -651,6 +651,19 @@ textarea {
 .form__section small a:hover {
     color: var(--color-white);
     border-bottom-color: var(--primary-color);
+}
+
+/* Nuevo estilo para el control del checkbox */
+.form__control.checkbox-row {
+    flex-direction: row; /* Fuerza la alineación horizontal: Checkbox al lado del Label */
+    align-items: center; /* Centra el Checkbox y el Label verticalmente */
+    gap: 0.5rem; /* Asegura una separación visible */
+    margin-top: 0.5rem; /* Un pequeño margen para separarlo del elemento anterior */
+}
+
+.form__control.checkbox-row label {
+    text-transform: none; /* Opcional: Para que no use mayúsculas como los otros labels */
+    font-weight: 400; /* Opcional: Menos negrita, ya que no es un título de campo */
 }
 
 
@@ -754,6 +767,10 @@ textarea {
         align-items: center;
     }
 
+    .nav__profile ul {
+        margin-top: -0.7rem;
+    }
+
     .nav__profile .avatar{
     margin-left: 2rem;
     border: 0;
@@ -786,8 +803,7 @@ textarea {
     }
     .form__section-container {
         width: 88%;
-        padding: 2rem;
-        margin-top: 2rem;
+        padding: 3rem;
     }
     
     .form__section-container h2 {
@@ -813,6 +829,10 @@ textarea {
     .featured__container {
         grid-template-columns: 1fr;
         gap: 0;
+    }
+    
+    .nav__profile ul {
+        margin-top: -0.7rem;
     }
 
     .posts__container {
@@ -844,10 +864,9 @@ textarea {
     /* FORMS */
     .form__section-container {
         width: 100%;
-        padding: 2rem;
+        padding: 3rem;
         border-radius: var(--card-border-radius-4);
-        box-sizing: border-box;
-        margin-top: 4rem;
+        margin-bottom: 13rem;
     }
     
     .form__section-container h2 {
