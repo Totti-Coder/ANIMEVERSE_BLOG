@@ -527,7 +527,7 @@ footer ul a:hover {
     font-weight: 500;
 }
 
-/* FORM */
+/* FORM SIGNIN SINGUP*/
 form {
     display: flex;
     flex-direction: column;
@@ -666,7 +666,73 @@ textarea {
     font-weight: 400; /* Opcional: Menos negrita, ya que no es un título de campo */
 }
 
+/* FORM ADD POST ADD CATEGORY*/
+.form__section-add {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+}
+.form__section-container-add{
+    width: var(--form-width);
+}
 
+.error-add {
+    background: var(--color-red-light);
+    color: var(--color-red);
+    padding: 0.8rem 1.4rem;
+    margin-bottom: 1rem;
+    
+}
+
+.success-add {
+    background: var(--color-green-light);
+    color: var(--color-green);
+    padding: 0.8rem 1.4rem;
+    margin-bottom: 1rem;
+    
+}
+
+.form__section-add .btn {
+    padding: 0.8rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-variant) 100%);
+    border: none;
+    border-radius: 0.8rem;
+    color: var(--color-white);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 300ms ease;
+    margin-top: 0.2rem;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form__section-add .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 300ms ease;
+}
+
+.form__section-add .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(111, 106, 250, 0.3),
+                0 0 20px rgba(111, 106, 250, 0.2);
+}
+
+.form__section-add .btn:hover::before {
+    left: 100%;
+}
+
+.form__section-add .btn:active {
+    transform: translateY(-1px);
+}
 
 /* MEDIA QUERIES (MEDIUM DEVICES) */ 
 @media screen and (max-width: 1024px) {
@@ -830,7 +896,7 @@ textarea {
         grid-template-columns: 1fr;
         gap: 0;
     }
-    
+
     .nav__profile ul {
         margin-top: -0.7rem;
     }
