@@ -439,22 +439,25 @@ footer ul a:hover {
 
 /* SINGLE POST */
 .singlepost {
-    margin: 6rem 0rem 2rem;
+    margin: 6rem 0rem 6rem;
 }
 
 .singlepost__container {
     width: var(--form-width);
     background: var(--color-gray-900);
-    padding: 1rem 2rem 2rem;
+    padding: 1rem 2rem 7.5rem;
 }
 
 .singlepost__container p {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     line-height: 1.7rem;
 }
 
 .singlepost__thumbnail {
     margin: 1.5rem 0 1rem;
+    width: 80%;
+    margin-left: auto;  
+    margin-right: auto;
 }
 
 
