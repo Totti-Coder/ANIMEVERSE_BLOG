@@ -386,6 +386,52 @@ footer ul a:hover {
     transition: var(--transition);
 }
 
+.btn.sm {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.8rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-color-variant) 100%);
+    border: none;
+    border-radius: 0.8rem;
+    color: var(--color-white);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 300ms ease;
+    margin-top: 0.3rem;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn.sm::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 300ms ease;
+}
+
+.btn.sm:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(111, 106, 250, 0.3),
+                0 0 20px rgba(111, 106, 250, 0.2);
+}
+
+.btn.sm:hover::before {
+    left: 100%;
+}
+
+.btn.sm:active {
+    transform: translateY(-1x);
+}
+
+.btn.danger {
+    background: var(--color-red);
+}
+
 /* SINGLE POST */
 .singlepost {
     margin: 6rem 0rem 2rem;
@@ -551,7 +597,7 @@ form {
     letter-spacing: 0.5px;
 }
 
-/* INPUT STYLING */
+/* INPUT */
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -738,6 +784,20 @@ textarea {
 
 .user-edit {
     margin-bottom: 8rem;
+}
+
+
+/* DASHBOARD */
+.dashboard {
+    margin-top: 6rem;
+}
+.dashboard__container {
+    display: grid;
+    grid-template-columns: 14rem auto;
+    gap: 1rem;
+    background: var(--color-gray-900);
+    padding: 2rem;
+    margin-bottom: 5rem;
 }
 
 /* MEDIA QUERIES (MEDIUM DEVICES) */ 
