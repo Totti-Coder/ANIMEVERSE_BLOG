@@ -95,6 +95,9 @@ img {
     object-fit: cover;
 }
 
+select option {
+    background: var(--color-gray-900);
+}
 
 /* NAV BAR */
 nav {
@@ -653,17 +656,16 @@ textarea {
     border-bottom-color: var(--primary-color);
 }
 
-/* Nuevo estilo para el control del checkbox */
 .form__control.checkbox-row {
-    flex-direction: row; /* Fuerza la alineación horizontal: Checkbox al lado del Label */
-    align-items: center; /* Centra el Checkbox y el Label verticalmente */
-    gap: 0.5rem; /* Asegura una separación visible */
-    margin-top: 0.5rem; /* Un pequeño margen para separarlo del elemento anterior */
+    flex-direction: row; 
+    align-items: center; 
+    gap: 0.5rem; 
+    margin-top: 0.5rem; 
 }
 
 .form__control.checkbox-row label {
-    text-transform: none; /* Opcional: Para que no use mayúsculas como los otros labels */
-    font-weight: 400; /* Opcional: Menos negrita, ya que no es un título de campo */
+    text-transform: none; 
+    font-weight: 400; 
 }
 
 /* FORM ADD POST ADD CATEGORY*/
@@ -732,6 +734,10 @@ textarea {
 
 .form__section-add .btn:active {
     transform: translateY(-1px);
+}
+
+.user-edit {
+    margin-bottom: 8rem;
 }
 
 /* MEDIA QUERIES (MEDIUM DEVICES) */ 
