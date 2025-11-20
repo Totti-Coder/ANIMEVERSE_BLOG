@@ -15,3 +15,21 @@ closeNavBtn.addEventListener("click", () => {
     openNavBtn.style.display = "inline-block";
     closeNavBtn.style.display = "none";
 });
+
+
+const sidebar = document.querySelector("aside");
+const showSideBarBtn = document.querySelector("#show__sidebar-btn");
+const hideSideBarBtn = document.querySelector("#hide__sidebar-btn");
+
+
+showSideBarBtn.addEventListener("click", () => {
+    sidebar.style.left = "0";
+    showSideBarBtn.style.display = "none";
+    hideSideBarBtn.style.display = "inline-block";
+});
+
+hideSideBarBtn.addEventListener("click", () => {
+    sidebar.style.left = "-100%";
+    showSideBarBtn.style.display = "inline-block";
+    hideSideBarBtn.style.display = "none";
+});

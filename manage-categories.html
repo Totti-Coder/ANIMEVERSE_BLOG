@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
 </head>
+
 <body>
     <nav>
         <div class="container nav__container">
@@ -39,6 +40,8 @@
     </nav>
     <section class="dashboard">
         <div class="container dashboard__container">
+            <button id="show__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-right"></i></button>
+            <button id="hide__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-left"></i></button>
             <aside>
                 <ul>
                     <li>
@@ -62,12 +65,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="add-categories.html"><i class="uil uil-edit"></i></i>
+                        <a href="add-category.html"><i class="uil uil-edit"></i></i>
                             <h5>Crear Categoria</h5>
                         </a>
                     </li>
                     <li>
-                        <a href="manage-categories.html"><i class="uil uil-clipboard-notes"></i></i>
+                        <a href="manage-categories.html" class="active"><i class="uil uil-clipboard-notes"></i></i>
                             <h5>Gestionar Categorias</h5>
                         </a>
                     </li>
@@ -84,12 +87,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <tr>
-                                <td>Dragon Ball</td>
-                                <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                                <td><a href="delete-category.html" class="btn sm danger">Delete</a></td>
-                            </tr>
-                        </tbody>
+                        <tr>
+                            <td>Dragon Ball</td>
+                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.html" class="btn sm danger">Delete</a></td>
+                        </tr>
+                        <tr>
+                            <td>Dragon Ball</td>
+                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.html" class="btn sm danger">Delete</a></td>
+                        </tr>
+                        <tr>
+                            <td>Dragon Ball</td>
+                            <td><a href="edit-category.html" class="btn sm">Edit</a></td>
+                            <td><a href="delete-category.html" class="btn sm danger">Delete</a></td>
+                        </tr>
+                    </tbody>
                 </table>
             </main>
         </div>

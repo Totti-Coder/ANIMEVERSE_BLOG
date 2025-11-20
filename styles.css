@@ -399,7 +399,6 @@ footer ul a:hover {
     margin-top: 0.3rem;
     position: relative;
     overflow: hidden;
-    text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
@@ -430,6 +429,12 @@ footer ul a:hover {
 
 .btn.danger {
     background: var(--color-red);
+    color: black;
+}
+
+.btn.danger:hover {
+    background: #d32f2f;
+    color: var(--color-white);
 }
 
 /* SINGLE POST */
@@ -791,6 +796,11 @@ textarea {
 .dashboard {
     margin-top: 6rem;
 }
+
+.sidebar__toggle {
+    display: none;
+}
+
 .dashboard__container {
     display: grid;
     grid-template-columns: 14rem auto;
@@ -799,6 +809,64 @@ textarea {
     padding: 2rem;
     margin-bottom: 5rem;
 }
+
+.dashboard aside a {
+    background-color: var(--primary-color);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 1.6rem;
+    transition: var(--transition);
+}
+
+.dashboard aside ul li:not(:last-child) a {
+    border-bottom: 1px solid var(--color-gray-900);
+}
+
+.dashboard aside a:hover {
+    background: var(--color-gray-700);
+    transform: translateX(6px);
+    transition: var(--transition);
+}
+
+.dashboard aside a.active {
+    background-color: var(--color-gray-900);
+}
+
+.dashboard main {
+    margin-left: 1.5rem;
+}
+
+.dashboard main h2 {
+    margin: 0rem 0rem 2rem 0rem;
+}
+
+.dashboard main table {
+    width: 100%;
+    text-align: left;
+}
+
+.dashboard main table th {
+    background: var(--color-gray-700);
+    padding: 0.8rem;
+    color: var(--color-white);
+}
+
+.dashboard main table td {
+    padding: 0.8rem;
+    border-bottom: 1px solid var(--color-gray-200);
+    transition: var(--transition);
+}
+
+.dashboard main table tr:hover td {
+    background-color: var(--bg-color);
+    color: var(--color-white);
+    transform: translateX(6px);
+    cursor: pointer;
+}
+
+
+
 
 /* MEDIA QUERIES (MEDIUM DEVICES) */ 
 @media screen and (max-width: 1024px) {
@@ -941,6 +1009,7 @@ textarea {
     .form__section-container h2 {
         font-size: 1.5rem;
     }
+
 }
 
 
@@ -1008,4 +1077,78 @@ textarea {
     form {
         gap: 1rem;
     }
+
+    /* DASHBOARD */
+    .dashboard {
+        margin-top: 5rem;
+    }
+
+    .btn.sm {
+        z-index: 2;
+    }
+    .dashboard__container{
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 0;
+        background: transparent;
+    } 
+    
+    .dashboard aside {
+        position: fixed;
+        box-shadow: 2rem 0 4rem rgba(0,0,0,0.4);
+        left: 0;
+        height: 100vh;
+        transition: var(--transition);
+        background: var(--primary-color);
+        z-index: 120120120;
+    }
+
+    .dashboard main {
+        margin: 0;
+    }
+    .dashboard main h2 {
+        margin-top: 1rem;
+    }
+    .dashboard main table thead {
+        display: none;
+    }
+
+    .dashboard main table tr {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dashboard main table tr:hover td {
+        background: transparent;
+    }
+
+    .dashboard main table tr:nth-child(even){
+        background: var(--color-gray-900);
+        
+    }
+
+    .dashboard .sidebar__toggle{
+        display: inline-block;
+        background: var(--primary-color-variant);
+        color: var(--color-white);
+        position: fixed;
+        bottom: 4rem;
+        right: 0;
+        z-index: 1;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50% 0 0 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: -1rem 0rem 2rem rgba(0, 0, 0, 0.4);
+    }
+
+    .dashboard aside a h5 {
+        display: inline-block;
+    }
+
+    #hide__sidebar-btn {
+        display: none;
+    }
+
 }
