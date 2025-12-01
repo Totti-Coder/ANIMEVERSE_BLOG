@@ -1,3 +1,7 @@
+<?php
+require "config/constants.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Multipage Blog Website</title>
     <!-- CUSTOM STYLESHEET -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <!-- ICONSCOUT CDN-->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
     <!-- MONTSERRAT FONT -->
@@ -20,18 +24,18 @@
         <div class="alert__message success">
             <p>Esto es un mensaje de error</p>
         </div>
-        <form action="" enctype="multipart/form-data">
-            <input type="text" placeholder="Nombre">
-            <input type="text" placeholder="Usuario">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Crea tu contraseña">
-            <input type="password" placeholder="Confirma tu contraseña">
+        <form action="<?= ROOT_URL ?>signup-logic.php" enctype="multipart/form-data" method="POST">
+            <input type="text" name="nombre" placeholder="Nombre">
+            <input type="text" name="username"placeholder="Usuario">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="createpassword" placeholder="Crea tu contraseña">
+            <input type="password" name="confirmpassword" placeholder="Confirma tu contraseña">
             <div class="form__control">
                 <label for="avatar">Avatar del usuario</label>
-                    <input type="file" id="avatar">  
+                    <input type="file" name="avatar" id="avatar">  
             </div>
-            <button type="submit" class="btn">Registrate</button>
-            <small>Ya tienes una cuenta? <a href="signin.html">Inicia Sesion</a></small>
+            <button type="submit" name="submit" class="btn">Registrate</button>
+            <small>Ya tienes una cuenta? <a href="signin.php">Inicia Sesion</a></small>
         </form>
     </div>
 </section>

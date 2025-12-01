@@ -1,0 +1,3 @@
+# Archivos de configuración sensibles
+config/constants.php
+admin/config/constants.php

@@ -1,56 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include "partials/header.php";
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Multipage Blog Website</title>
-    <!-- CUSTOM STYLESHEET -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- ICONSCOUT CDN-->
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.2.0/css/line.css">
-    <!-- MONTSERRAT FONT -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
-</head>
 
-<body>
-    <nav>
-        <div class="container nav__container">
-            <a href="index.html" class="nav__logo">ANIMEVERSE</a>
-            <ul class="nav__items">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">Que somos?</a></li>
-                <li><a href="services.html">Servicios</a></li>
-                <li><a href="contact.html">Contacto</a></li>
-                <li><a href="signin.html">Iniciar Sesion</a></li>
-                <li class="nav__profile">
-                    <div class="avatar">
-                        <img src="./images/blog1.jpg">
+    <section class="featured">
+        <div class="container featured__container">
+            <div class="post__thumbnail">
+                <img src="./images/blog1.jpg">
+            </div>
+            <div class="post__info">
+                <a href="category-posts.html" class="category__button">Demon Slayer</a>
+                <h2 class="post__title"><a href="post.html">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt.</a></h2>
+                <p class="post__body">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, ab.</p>
+                <div class="post__author">
+                    <div class="post__author-avatar">
+                        <img src="./images/avatar2.jpg">
                     </div>
-                    <ul>
-                        <li><a href="dashboard.html">Panel de control</a></li>
-                        <li><a href="logout.html">Cerrar Sesion</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <button id="open__nav-btn"><i class="uil uil-bars"></i></i></button>
-            <button id="close__nav-btn"><i class="uil uil-multiply"></i></button>
+                    <div class="post__author-info">
+                        <h5>Hecho por: Pablo Garcia</h5>
+                        <small>Noviembre 11, 2025 - 20:11</small>
+                    </div>
+                </div>
+            </div>
         </div>
-    </nav>
-    <!-- END OF NAV -->
+    </section>
 
-    <section class="search__bar">
-    <form class="container search__bar-container" action="">
-        <div>
-            <i class="uil uil-search"></i>
-            <input type="search" name="" placeholder="Buscar">
-        </div>
-        <button type="submit" class="btn"><i class="uil uil-angle-right"></i></button>
-    </form>
-   </section>
-
-    <!-- END OF SEARCH-->
+    <!-- END OF FEATURED-->
 
     <section class="posts">
         <div class="container posts__container">
@@ -59,7 +34,7 @@
                     <img src="./images/avatar2.JPG" alt="">
                 </div>
                 <div class="post__info">
-                    <a href="" class="category__button">Demon Slayer</a>
+                    <a href="category-posts.html" class="category__button">Demon Slayer</a>
                     <h3 class="post__title"> <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, dolor?
                     </a></h3>
                     <p class="post__body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe magnam voluptates nostrum excepturi odit ad esse mollitia tempore, modi sapiente minus eveniet laboriosam tenetur ducimus!</p>
@@ -79,7 +54,7 @@
                     <img src="./images/avatar2.JPG" alt="">
                 </div>
                 <div class="post__info">
-                    <a href="" class="category__button">Demon Slayer</a>
+                    <a href="category-posts.html" class="category__button">Demon Slayer</a>
                     <h3 class="post__title"> <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, dolor?
                     </a></h3>
                     <p class="post__body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe magnam voluptates nostrum excepturi odit ad esse mollitia tempore, modi sapiente minus eveniet laboriosam tenetur ducimus!</p>
@@ -99,7 +74,7 @@
                     <img src="./images/avatar2.JPG" alt="">
                 </div>
                 <div class="post__info">
-                    <a href="" class="category__button">Demon Slayer</a>
+                    <a href="category-posts.html" class="category__button">Demon Slayer</a>
                     <h3 class="post__title"> <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, dolor?
                     </a></h3>
                     <p class="post__body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe magnam voluptates nostrum excepturi odit ad esse mollitia tempore, modi sapiente minus eveniet laboriosam tenetur ducimus!</p>
@@ -119,7 +94,7 @@
                     <img src="./images/avatar2.JPG" alt="">
                 </div>
                 <div class="post__info">
-                    <a href="" class="category__button">Demon Slayer</a>
+                    <a href="category-posts.html" class="category__button">Demon Slayer</a>
                     <h3 class="post__title"> <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, dolor?
                     </a></h3>
                     <p class="post__body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe magnam voluptates nostrum excepturi odit ad esse mollitia tempore, modi sapiente minus eveniet laboriosam tenetur ducimus!</p>
@@ -152,52 +127,6 @@
     </section>
     <!-- END OF CATEGORY BUTTONS -->
 
-    <footer>
-        <div class="footer__socials">
-            <a href="www.linkedin.com/in/pablo-garcía-roza-5272932aa" target="_blank"><i class="uil uil-linkedin"></i></a>
-            <a href="https://github.com/Totti-Coder" target="_blank"><i class="uil uil-github"></i></a>
-            <a href="https://www.instagram.com/pablo_totti/" target="_blank"><i class="uil uil-instagram"></i></i></a>
-        </div>
-
-        <div class="container footer__container">
-            <article>
-                <h4>Categorias</h4>
-                <ul>
-                    <li><a href="">Dragon Ball</a></li>
-                    <li><a href="">One Piece</a></li>
-                    <li><a href="">Demon Slayer</a></li>
-                    <li><a href="">Hunter x Hunter</a></li>
-                    <li><a href="">Jujustu Kaisen</a></li>
-                    <li><a href="">Inazuma Eleven</a></li>
-                    <li><a href="">Naruto</a></li>
-                    <li><a href="">My Hero Academy</a></li>
-                </ul>
-                </article>
-                <article>
-                    <ul>
-                    <h4>Soporte Tecnico</h4>
-                    <li><a href="">Soporte Online</a></li>
-                    <li><a href="">Correo Electronico</a></li>
-                    <li><a href="">Redes Sociales</a></li>
-                    <li><a href="">Localizacion</a></li>
-                    </ul>
-                </article>
-                <article>
-                <h4>Enlaces Permanentes</h4>
-                <ul>
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">Que somos?</a></li>
-                    <li><a href="">Servicios</a></li>
-                    <li><a href="">Contacto</a></li>
-                </ul>
-            </article>
-        </div>
-        <div class="footer__copyright">
-            <small>Copyright &copy; 2025 ANIMEVERSE BLOG</small>
-        </div>
-    </footer>
-
-
-    <script src="./main.js"></script>
-</body>
-</html>
+<?php
+include "partials/footer.php"
+?>
