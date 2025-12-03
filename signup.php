@@ -1,5 +1,16 @@
 <?php
+session_start();
 require "config/constants.php";
+
+// devolvemos la data del formulario si hubo algun error en el registro
+$nombre = $_SESSION["signup-data"]["nombre"] ?? '';
+$username = $_SESSION["signup-data"]["username"] ?? '';
+$email = $_SESSION["signup-data"]["email"] ?? '';
+$createpassword = $_SESSION["signup-data"]["createpassword"] ?? '';
+$confirmpassword= $_SESSION["signup-data"]["confirmpassword"] ?? '';
+
+// eliminamos los datos del registro de la sesion
+unset($_SESSION["signup-data"]);
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +19,7 @@ require "config/constants.php";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Multipage Blog Website</title>
+    <title>FULL STACK BLOG APPLICATION</title>
     <!-- CUSTOM STYLESHEET -->
     <link rel="stylesheet" href="./css/styles.css">
     <!-- ICONSCOUT CDN-->
@@ -21,15 +32,25 @@ require "config/constants.php";
 <section class="form__section">
     <div class="container form__section-container">
         <h2>Registro</h2>
-        <div class="alert__message success">
-            <p>Esto es un mensaje de error</p>
+        <?php
+            if(isset($_SESSION["signup"])): ?> 
+                <div class="alert__message error">
+            <p>
+                <?= $_SESSION["signup"];
+                unset($_SESSION["signup"]); 
+                ?>
+        </p>
+            
         </div>
+        <?php endif
+
+        ?>
         <form action="<?= ROOT_URL ?>signup-logic.php" enctype="multipart/form-data" method="POST">
-            <input type="text" name="nombre" placeholder="Nombre">
-            <input type="text" name="username"placeholder="Usuario">
-            <input type="email" name="email" placeholder="Email">
-            <input type="password" name="createpassword" placeholder="Crea tu contraseña">
-            <input type="password" name="confirmpassword" placeholder="Confirma tu contraseña">
+            <input type="text" name="nombre" value="<?= $nombre ?>" placeholder="Nombre">
+            <input type="text" name="username" value="<?= $username ?>" placeholder="Usuario">
+            <input type="email" name="email" value="<?= $email ?>" placeholder="Email">
+            <input type="password" name="createpassword" value="<?= $createpassword ?>" placeholder="Crea tu contraseña">
+            <input type="password" name="confirmpassword" value="<?= $confirmpassword ?>" placeholder="Confirma tu contraseña">
             <div class="form__control">
                 <label for="avatar">Avatar del usuario</label>
                     <input type="file" name="avatar" id="avatar">  

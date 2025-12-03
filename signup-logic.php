@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "config/database.php";
 
 if(isset($_POST["submit"])) {
@@ -34,8 +35,15 @@ if(isset($_POST["submit"])) {
             $hashed_password = password_hash($createpassword, PASSWORD_DEFAULT);
 
             // Compruebo que el usuario y el correo electronico realmente existen ya en la base de datos
-            $user_check_query = "SELECT * FROM users WHERE username='$username' OR email= '$email'";
-            $user_check_result = mysqli_query($connection, $user_check_query);
+            $user_check_query = "SELECT * FROM users WHERE username=? OR email=?";
+            $stmt = mysqli_prepare($connection, $user_check_query);
+
+            mysqli_stmt_bind_param($stmt, "ss", $username, $email);
+
+            mysqli_stmt_execute($stmt);
+
+            $user_check_result = mysqli_stmt_get_result($stmt);
+
             if(mysqli_num_rows($user_check_result) > 0){
                 $_SESSION["signup"] = "El usuario o email ya existen";
             } else {
@@ -62,6 +70,34 @@ if(isset($_POST["submit"])) {
                 }
             }
         } 
+    } 
+    // Nos redirige a la pagina de registro si existe algun problema
+    if($_SESSION["signup"]) {
+        // Pasamos los datos recopilados a la pagina de registro
+        $_SESSION["signup-data"] = $_POST;
+        header("location: " . ROOT_URL . "signup.php");
+        die();
+    } else {
+        // Insertamos nuevo usuario en la tabla de usuarios
+        $insert_user_query = "INSERT INTO users (nombre, username, email, contraseña, avatar, is_admin) VALUES(?, ?, ?, ?, ?, 0)";
+        $stmt = mysqli_prepare($connection, $insert_user_query);
+        mysqli_stmt_bind_param($stmt, "sssss", $nombre, $username, $email, $hashed_password, $avatar_name);
+        mysqli_stmt_execute($stmt);
+
+        if(mysqli_stmt_errno($stmt)){
+            // Si hay error en la inserción
+            $_SESSION["signup"] = "Error al registrar usuario. Por favor intenta de nuevo.";
+            $_SESSION["signup-data"] = $_POST;
+            header("location: " . ROOT_URL . "signup.php");
+            die();
+        } else {
+            // Registro exitoso
+            $_SESSION["signup-success"] = "El registro ha sido exitoso. Por favor inicia sesion";
+            // Limpiamos los datos del formulario
+            unset($_SESSION["signup-data"]);
+            header("location: " . ROOT_URL . "signin.php");
+            die();
+        }
     }
     
 } else {
