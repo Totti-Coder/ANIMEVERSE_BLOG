@@ -1,5 +1,6 @@
 <?php
-require "config/database.php";
+require_once "config/constants.php";
+require_once "config/database.php";
 
 if (isset($_POST["submit"])) {
     // Obtenemos los datos del formulario
@@ -27,12 +28,31 @@ if (isset($_POST["submit"])) {
 
             //Comparamos la password con la de la base de datos
             if(password_verify($password, $db_password)) {
-                //
+                // Establezcemos una sesion para el control de acceso
+                $_SESSION["user-id"] = $user_record["id"];
+                // Comprobamos que el usuario es administrador o no
+                if($user_record["is_admin"] == 1){
+                    $_SESSION["user_is_admin"] = true;
+                }
+
+                // Inicio de sesion como admin
+                header("location: " . ROOT_URL . "admin/");
+            } else {
+                $_SESSION["signin"] = "Por favor, comprueba que todo este correcto";
             }
         } else {
             $_SESSION["signin"] = "El usuario no ha sido encontrado";
         }
     }
+
+
+    // Si existe algun problema, redirigimos a la pagina de inicio de sesion con los datos recopilados
+    if(isset($_SESSION["signin"])) {
+        $_SESSION["signin-data"] = $_POST;
+        header("location: " . ROOT_URL . "signin.php");
+        die();
+    }
+
 
 } else {
     header("location: " . ROOT_URL . "signin.php");
