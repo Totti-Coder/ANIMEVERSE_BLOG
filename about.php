@@ -1,5 +1,4 @@
 <?php
-require "config/constants.php";
 include "partials/header.php";
     ?>
 

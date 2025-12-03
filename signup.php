@@ -1,5 +1,4 @@
 <?php
-session_start();
 require "config/constants.php";
 
 // devolvemos la data del formulario si hubo algun error en el registro

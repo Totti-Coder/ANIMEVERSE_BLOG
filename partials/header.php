@@ -1,6 +1,6 @@
 <?php
-require(__DIR__ . '/../config/constants.php');  // PRIMERO las constantes
-require(__DIR__ . '/../config/database.php');   // LUEGO la base de datos
+require "config/constants.php";  
+require "config/database.php";
 ?>
 
 <!DOCTYPE html>

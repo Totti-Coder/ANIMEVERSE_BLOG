@@ -21,13 +21,21 @@ require "config/constants.php";
 <section class="form__section">
     <div class="container form__section-container">
         <h2>Inicia Sesion</h2>
-        <div class="alert__message error">
-            <p>Esto es un mensaje de error</p>
+        <?php
+            if(isset($_SESSION["signup-sucess"])): ?> 
+                <div class="alert__message success">
+            <p>
+                <?= $_SESSION["signup-sucess"];
+                unset($_SESSION["signup-sucess"]); 
+                ?>
+        </p>
+            
         </div>
-        <form action="<?= ROOT_URL ?>signup-logic.php" enctype="multipart/form-data">
-            <input type="text" placeholder="Usuario o Email">
-            <input type="password" placeholder="Contraseña">
-            <button type="submit" class="btn">Iniciar Sesion</button>
+        <?php endif ?>
+        <form action="<?= ROOT_URL ?>signin-logic.php" enctype="multipart/form-data"  method="POST">
+            <input type="text" name="username_email" placeholder="Usuario o Email">
+            <input type="password" name="password" placeholder="Contraseña">
+            <button type="submit" name="submit" class="btn">Iniciar Sesion</button>
             <small>No tienes una cuenta? <a href="signup.php">Registrate</a></small>
         </form>
     </div>
