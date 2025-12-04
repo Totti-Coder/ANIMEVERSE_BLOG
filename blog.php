@@ -22,7 +22,7 @@ include "partials/header.php";
             </div>
             <div class="post__info">
                 <a href="" class="category__button">Demon Slayer</a>
-                <h3 class="post__title"> <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                <h3 class="post__title"> <a href="post.php">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                         Quibusdam, dolor?
                     </a></h3>
                 <p class="post__body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe magnam voluptates
@@ -45,7 +45,7 @@ include "partials/header.php";
             </div>
             <div class="post__info">
                 <a href="" class="category__button">Demon Slayer</a>
-                <h3 class="post__title"> <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                <h3 class="post__title"> <a href="post.php">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                         Quibusdam, dolor?
                     </a></h3>
                 <p class="post__body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe magnam voluptates
@@ -68,7 +68,7 @@ include "partials/header.php";
             </div>
             <div class="post__info">
                 <a href="" class="category__button">Demon Slayer</a>
-                <h3 class="post__title"> <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                <h3 class="post__title"> <a href="post.php">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                         Quibusdam, dolor?
                     </a></h3>
                 <p class="post__body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe magnam voluptates
@@ -91,7 +91,7 @@ include "partials/header.php";
             </div>
             <div class="post__info">
                 <a href="" class="category__button">Demon Slayer</a>
-                <h3 class="post__title"> <a href="post.html">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                <h3 class="post__title"> <a href="post.php">Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                         Quibusdam, dolor?
                     </a></h3>
                 <p class="post__body">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe magnam voluptates

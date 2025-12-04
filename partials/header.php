@@ -12,6 +12,9 @@ if(isset($_SESSION["user-id"])) {
     mysqli_stmt_execute($stmt);
 
     $query_result = mysqli_stmt_get_result($stmt);
+    $user = mysqli_fetch_assoc($query_result);
+    $avatar = $user['avatar'] ?? null;
+    $is_admin = $user['is_admin'] ?? 0;
 }
 ?>
 

@@ -1,5 +1,20 @@
 <?php
-require "../partials/header.php";
+require "config/constants.php";
+require "config/database.php";
+
+if(isset($_SESSION["user-id"])) {
+    $id = filter_var($_SESSION["user-id"], FILTER_SANITIZE_NUMBER_INT);
+    $query = "SELECT * FROM users WHERE id=?";
+    $stmt = mysqli_prepare($connection, $query);
+
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+
+    $query_result = mysqli_stmt_get_result($stmt);
+    $user = mysqli_fetch_assoc($query_result);
+    $avatar = $user['avatar'] ?? null;
+    $is_admin = $user['is_admin'] ?? 0;
+}
 
 // Comprobacion el estado de inicio de sesion
 if(!isset($_SESSION["user-id"])) {
