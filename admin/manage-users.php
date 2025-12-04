@@ -18,7 +18,7 @@ include "partials/header.php";
                             <h5>Gestionar Publicaciones</h5>
                         </a>
                     </li>
-                    <?php if(isset($_SERVER["user_is_admin"])): ?>
+                    <?php if(isset($_SESSION["user_is_admin"])): ?>
                     <li>
                         <a href="add-user.html"><i class="uil uil-user-check"></i></i>
                             <h5>Crear Usuario</h5>
