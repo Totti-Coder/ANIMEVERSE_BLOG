@@ -45,15 +45,13 @@ if (isset($_POST["submit"])) {
         }
     }
 
-
     // Si existe algun problema, redirigimos a la pagina de inicio de sesion con los datos recopilados
     if(isset($_SESSION["signin"])) {
         $_SESSION["signin-data"] = $_POST;
         header("location: " . ROOT_URL . "signin.php");
         die();
     }
-
-
+    
 } else {
     header("location: " . ROOT_URL . "signin.php");
     die();

@@ -1,5 +1,6 @@
 <?php
 require "config/constants.php";
+require "config/database.php"; 
 
 // devolvemos la data del formulario si hubo algun error en el registro
 $nombre = $_SESSION["signup-data"]["nombre"] ?? '';

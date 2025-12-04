@@ -1,5 +1,11 @@
 <?php
-require "config/database.php";
+require "../partials/header.php";
+
+// Comprobacion el estado de inicio de sesion
+if(!isset($_SESSION["user-id"])) {
+    header("location: " . ROOT_URL . "signin.php");
+    die();
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,16 +33,19 @@ require "config/database.php";
                 <li><a href="<?= ROOT_URL ?>about.php">Que somos?</a></li>
                 <li><a href="<?= ROOT_URL ?>services.php">Servicios</a></li>
                 <li><a href="<?= ROOT_URL ?>contact.php">Contacto</a></li>
-                <li><a href="<?= ROOT_URL ?>signin.php">Iniciar Sesion</a></li>
-                <li class="nav__profile">
+                <?php if(isset($_SESSION["user-id"])): ?>
+                    <li class="nav__profile">
                     <div class="avatar">
-                        <img src="<?= ROOT_URL ?>images/blog1.jpg">
+                        <img src="<?= ROOT_URL . "images/" . $avatar ?>" >
                     </div>
                     <ul>
                         <li><a href="<?= ROOT_URL ?>index.php">Panel de control</a></li>
                         <li><a href="<?= ROOT_URL ?>logout.php">Cerrar Sesion</a></li>
                     </ul>
                 </li>
+                <?php else : ?>
+                <li><a href="<?= ROOT_URL ?>signin.php">Iniciar Sesion</a></li>
+                <?php endif ?>
             </ul>
             <button id="open__nav-btn"><i class="uil uil-bars"></i></button>
             <button id="close__nav-btn"><i class="uil uil-multiply"></i></button>
