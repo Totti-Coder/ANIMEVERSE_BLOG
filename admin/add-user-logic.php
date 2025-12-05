@@ -94,7 +94,7 @@ if(isset($_POST["submit"])) {
             die();
         } else {
             // Registro exitoso
-            $_SESSION["adduser-success"] = "El registro ha sido exitoso. Por favor inicia sesion";
+            $_SESSION["adduser-success"] = "El registro ha sido exitoso.";
             // Limpiamos los datos del formulario
             unset($_SESSION["adduser-data"]);
             header("location: " . ROOT_URL . "admin/manage-users.php");

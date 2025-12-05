@@ -1,13 +1,19 @@
 <?php
 include "partials/header.php";
+
+// CONSULTA A LA BASE DE DATOS
+$query = "SELECT * FROM users ORDER BY id DESC";
+$stmt = mysqli_prepare($connection, $query);
+mysqli_stmt_execute($stmt);
+$users = mysqli_stmt_get_result($stmt);
 ?>
 
 <section class="dashboard">
     <?php if (isset($_SESSION["adduser-success"])): ?>
-        <div class="alert__message success">
+        <div class="alert__message success container">
             <p>
-                <?= $_SESSION["adduser-sucess"];
-                unset($_SESSION["adduser-sucess"]);
+                <?= $_SESSION["adduser-success"];
+                unset($_SESSION["adduser-success"]);
                 ?>
             </p>
         </div>
@@ -65,27 +71,15 @@ include "partials/header.php";
                     </tr>
                 </thead>
                 <tbody>
+                    <?php while($user = mysqli_fetch_assoc($users)) : ?>
                     <tr>
-                        <td>Lucas Gomez</td>
-                        <td>lucasg18</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>No</td>
+                        <td><?= $user['nombre'] ?></td>
+                        <td><?= $user['username'] ?></td>
+                        <td><a href="edit-user.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
+                        <td><a href="delete-user.php?id=<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
+                        <td><?= $user['is_admin'] ? 'Si' : 'No' ?></td>
                     </tr>
-                    <tr>
-                        <td>Marcos Perez</td>
-                        <td>marianorajoy12</td>
-                        <td><a href="edit-user.php" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>Si</td>
-                    </tr>
-                    <tr>
-                        <td>Rigoberto Garcia</td>
-                        <td>Capdesuru__</td>
-                        <td><a href="edit-post.php" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.php" class="btn sm danger">Delete</a></td>
-                        <td>No</td>
-                    </tr>
+                    <?php endwhile ?>
                 </tbody>
             </table>
         </main>
