@@ -8,33 +8,33 @@ include "partials/header.php";
         <aside>
             <ul>
                 <li>
-                    <a href="add-post.html"><i class="uil uil-pen"></i>
+                    <a href="add-post.php"><i class="uil uil-pen"></i>
                         <h5>Crear Publicacion</h5>
                     </a>
                 </li>
                 <li>
-                    <a href="dashboard.html"><i class="uil uil-postcard"></i></i>
+                    <a href="index.php"><i class="uil uil-postcard"></i></i>
                         <h5>Gestionar Publicaciones</h5>
                     </a>
                 </li>
                 <?php if(isset($_SESSION["user_is_admin"])): ?>
                 <li>
-                    <a href="add-user.html"><i class="uil uil-user-check"></i></i>
+                    <a href="add-user.php"><i class="uil uil-user-check"></i></i>
                         <h5>Crear Usuario</h5>
                     </a>
                 </li>
                 <li>
-                    <a href="manage-users.html"><i class="uil uil-users-alt"></i></i>
+                    <a href="manage-users.php"><i class="uil uil-users-alt"></i></i>
                         <h5>Gestionar usuarios</h5>
                     </a>
                 </li>
                 <li>
-                    <a href="add-category.html"><i class="uil uil-edit"></i></i>
+                    <a href="add-category.php"><i class="uil uil-edit"></i></i>
                         <h5>Crear Categoria</h5>
                     </a>
                 </li>
                 <li>
-                    <a href="manage-categories.html" class="active"><i class="uil uil-clipboard-notes"></i></i>
+                    <a href="manage-categories.php" class="active"><i class="uil uil-clipboard-notes"></i></i>
                         <h5>Gestionar Categorias</h5>
                     </a>
                 </li>
