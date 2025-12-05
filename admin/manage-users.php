@@ -1,9 +1,11 @@
 <?php
 include "partials/header.php";
 
-// CONSULTA A LA BASE DE DATOS
-$query = "SELECT * FROM users ORDER BY id DESC";
+// Consulta a la base de datos evitando eliminar nuestra sesion de administrador
+$current_admin_id = $_SESSION["user-id"];
+$query = "SELECT * FROM users WHERE NOT id=? ORDER BY id DESC";
 $stmt = mysqli_prepare($connection, $query);
+mysqli_stmt_bind_param($stmt, "i", $current_admin_id);
 mysqli_stmt_execute($stmt);
 $users = mysqli_stmt_get_result($stmt);
 ?>
@@ -75,8 +77,8 @@ $users = mysqli_stmt_get_result($stmt);
                     <tr>
                         <td><?= $user['nombre'] ?></td>
                         <td><?= $user['username'] ?></td>
-                        <td><a href="edit-user.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
-                        <td><a href="delete-user.php?id=<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
+                        <td><a href="/admin/edit-user.php?id=<?= $user['id'] ?>" class="btn sm">Edit</a></td>
+                        <td><a href="admin/delete-user.php?id=<?= $user['id'] ?>" class="btn sm danger">Delete</a></td>
                         <td><?= $user['is_admin'] ? 'Si' : 'No' ?></td>
                     </tr>
                     <?php endwhile ?>
