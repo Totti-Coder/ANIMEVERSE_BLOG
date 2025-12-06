@@ -4,11 +4,11 @@ require "config/database.php";
 
 // Obtener los datos del formulario en caso de que haya dado a "CREAR"
 if (isset($_POST["submit"])) {
-    $nombre = filter_var($_POST["nombre"], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $username = filter_var($_POST["username"], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+     $nombre = htmlspecialchars($_POST["nombre"], ENT_QUOTES, 'UTF-8');
+    $username = htmlspecialchars($_POST["username"], ENT_QUOTES, 'UTF-8');
     $email = filter_var($_POST["email"], FILTER_VALIDATE_EMAIL);
-    $createpassword = filter_var($_POST["createpassword"], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $confirmpassword = filter_var($_POST["confirmpassword"], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $createpassword = htmlspecialchars($_POST["createpassword"], ENT_QUOTES, 'UTF-8');
+    $confirmpassword = htmlspecialchars($_POST["confirmpassword"], ENT_QUOTES, 'UTF-8');
     $is_admin = filter_var($_POST["userrole"], FILTER_SANITIZE_NUMBER_INT);
     $avatar = $_FILES["avatar"];
 

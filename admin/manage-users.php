@@ -11,11 +11,19 @@ $users = mysqli_stmt_get_result($stmt);
 ?>
 
 <section class="dashboard">
-    <?php if (isset($_SESSION["adduser-success"])): ?>
+    <?php if (isset($_SESSION["adduser-success"])): // Muestra si al agregar un usuario funciono correctamente ?>
         <div class="alert__message success container">
             <p>
                 <?= $_SESSION["adduser-success"];
                 unset($_SESSION["adduser-success"]);
+                ?>
+            </p>
+        </div>
+        <?php elseif (isset($_SESSION["edit-user-success"])): ?>
+        <div class="alert__message success container">
+            <p>
+                <?= $_SESSION["edit-user-success"];
+                unset($_SESSION["edit-user-success"]);
                 ?>
             </p>
         </div>
