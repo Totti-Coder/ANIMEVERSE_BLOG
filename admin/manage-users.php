@@ -27,6 +27,14 @@ $users = mysqli_stmt_get_result($stmt);
                 ?>
             </p>
         </div>
+        <?php elseif (isset($_SESSION["edit-user"])): ?>
+        <div class="alert__message error container">
+            <p>
+                <?= $_SESSION["edit-user"];
+                unset($_SESSION["edit-user"]);
+                ?>
+            </p>
+        </div>
     <?php endif ?>
 
     <div class="container dashboard__container">
