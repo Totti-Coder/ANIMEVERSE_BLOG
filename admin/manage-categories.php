@@ -1,5 +1,11 @@
 <?php
 include "partials/header.php";
+
+// Consulta a la base de datos las categorias
+$query = "SELECT * FROM categories ORDER BY title DESC";
+$stmt = mysqli_prepare($connection, $query);
+mysqli_stmt_execute($stmt);
+$categories = mysqli_stmt_get_result($stmt);
 ?>
 <section class="dashboard">
     <div class="container dashboard__container">
@@ -43,6 +49,7 @@ include "partials/header.php";
         </aside>
         <main>
             <h2>Gestionar Categorias</h2>
+            <?php if (mysqli_num_rows($categories) > 0): ?>
             <table>
                 <thead>
                     <tr>
@@ -52,23 +59,21 @@ include "partials/header.php";
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Dragon Ball</td>
-                        <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.html" class="btn sm danger">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>Dragon Ball</td>
-                        <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.html" class="btn sm danger">Delete</a></td>
-                    </tr>
-                    <tr>
-                        <td>Dragon Ball</td>
-                        <td><a href="edit-category.html" class="btn sm">Edit</a></td>
-                        <td><a href="delete-category.html" class="btn sm danger">Delete</a></td>
-                    </tr>
+                    <?php while ($category = mysqli_fetch_assoc($categories)): ?>
+                            <tr>
+                                <td><?= $category['title'] ?></td>
+
+                                <td><a href="<?= ROOT_URL ?>admin/edit-category.php?id=<?= $category['id'] ?>" class="btn sm">Edit</a>
+                                </td>
+                                <td><a href="<?= ROOT_URL ?>admin/delete-category.php?id=<?= $category['id'] ?>"
+                                        class="btn sm danger">Delete</a></td>
+                            </tr>
+                        <?php endwhile ?>
                 </tbody>
             </table>
+            <?php else: ?>
+                <div class="alert__message error"><?= "No se han encontrado categorias" ?></div>
+            <?php endif ?>
         </main>
     </div>
 
