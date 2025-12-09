@@ -19,7 +19,7 @@ $users = mysqli_stmt_get_result($stmt);
                 ?>
             </p>
         </div>
-        <?php elseif (isset($_SESSION["edit-user-success"])): ?>
+        <?php elseif (isset($_SESSION["edit-user-success"])): // Muestra si al editar un usuario todo funciono correctamente?>
         <div class="alert__message success container">
             <p>
                 <?= $_SESSION["edit-user-success"];
@@ -27,11 +27,27 @@ $users = mysqli_stmt_get_result($stmt);
                 ?>
             </p>
         </div>
-        <?php elseif (isset($_SESSION["edit-user"])): ?>
+        <?php elseif (isset($_SESSION["edit-user"])): // Muestra si al editar un usuario algo fallo ?>
         <div class="alert__message error container">
             <p>
                 <?= $_SESSION["edit-user"];
                 unset($_SESSION["edit-user"]);
+                ?>
+            </p>
+        </div>
+        <?php elseif (isset($_SESSION["delete-user-success"])): // Muestra si al eliminar un usuario todo funciono correctamente?>
+        <div class="alert__message success container">
+            <p>
+                <?= $_SESSION["delete-user-success"];
+                unset($_SESSION["delete-user-success"]);
+                ?>
+            </p>
+        </div>
+        <?php elseif (isset($_SESSION["delete-user"])): // Muestra si al eliminar un usuario algo fallo ?>
+        <div class="alert__message error container">
+            <p>
+                <?= $_SESSION["delete-user"];
+                unset($_SESSION["delete-user"]);
                 ?>
             </p>
         </div>
