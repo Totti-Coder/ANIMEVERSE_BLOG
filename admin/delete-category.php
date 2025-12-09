@@ -4,7 +4,7 @@ require "partials/header.php";
 if (isset($_GET["id"])) {
     $id = filter_var($_GET["id"], FILTER_SANITIZE_NUMBER_INT);
 
-    // Buscamos el usuario en la base de datos
+    // Buscamos la categoria en la base de datos
     $query = "SELECT * FROM categories WHERE id=?";
     $stmt = mysqli_prepare($connection, $query);
     mysqli_stmt_bind_param($stmt, "i", $id);
@@ -19,6 +19,7 @@ if (isset($_GET["id"])) {
     $stmt = mysqli_prepare($connection, $delete_category_query);
     mysqli_stmt_bind_param($stmt, "i", $id);
     mysqli_stmt_execute($stmt);
+
     if (mysqli_errno($connection)) {
         $_SESSION["delete-category"] = "No se pudo eliminar la categoria '{$category["title"]}'.";
     } else {
