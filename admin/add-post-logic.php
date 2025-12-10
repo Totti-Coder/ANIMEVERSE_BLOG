@@ -62,7 +62,7 @@ if (isset($_POST["submit"])) {
         }
 
         // Agregamos el post a la base de datos
-        $query = "INSERT INTO posts (title, body, thumbnail, category_id, author_id, is_featured) VALUES (?,?,?,?,?,?,?)";
+        $query = "INSERT INTO posts (title, body, thumbnail, category_id, author_id, is_featured) VALUES (?,?,?,?,?,?)";
         $stmt= mysqli_prepare($connection, $query);
         mysqli_stmt_bind_param($stmt, "sssiii",$title, $body, $thumbnail_name, $category_id, $author_id, $is_featured);
         mysqli_stmt_execute($stmt);

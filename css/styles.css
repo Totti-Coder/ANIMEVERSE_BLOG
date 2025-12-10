@@ -58,7 +58,7 @@ body::-webkit-scrollbar {
 
 section {
     margin-top: 3rem;
-    width: 100vw;
+    width: 100dvw;
 }
 
 h1, h2, h3, h4, h5{
@@ -102,7 +102,7 @@ select option {
 /* NAV BAR */
 nav {
     background: var(--primary-color);
-    width: 100vw;
+    width: 100dvw;
     height: 4.5rem;
     position: fixed;
     top: 0;
@@ -472,7 +472,7 @@ footer ul a:hover {
 
 /* Empty Pages */
 .empty__page{
-    height: 70vh;
+    height: 70dvh;
     text-align: center;
     display: grid;
     place-items: center;
@@ -483,8 +483,8 @@ footer ul a:hover {
 .form__section {
     display: grid;
     place-items: center;
-    height: 100vh;
-    width: 100vw;
+    height: 100dvh;
+    width: 100dvw;
     padding: 2.5rem;
     box-sizing: border-box;
     margin-top: 3rem;
@@ -726,7 +726,7 @@ textarea {
 .form__section-add {
     display: grid;
     place-items: center;
-    height: 100vh;
+    height: 100dvh;
 }
 .form__section-container-add{
     width: var(--form-width);
@@ -1100,7 +1100,7 @@ textarea {
         position: fixed;
         box-shadow: 2rem 0 4rem rgba(0,0,0,0.4);
         left: 0;
-        height: 100vh;
+        height: 100dvh;
         transition: var(--transition);
         background: var(--primary-color);
         z-index: 120120120;

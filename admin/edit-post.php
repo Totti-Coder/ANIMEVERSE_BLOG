@@ -4,8 +4,8 @@ include "partials/header.php";
 
 <section class="form__section-add">
     <div class="container form__section-container-add">
-        <h2>Editar Articulo</h2>
-        <form action="" enctype="multipart/form-data">
+        <h2>Editar Publicacion</h2>
+        <form action="" enctype="multipart/form-data" method="POST">
             <input type="text" placeholder="Titulo">
             <select name="" id="">
                 <option value="1">Dragon Ball</option>
