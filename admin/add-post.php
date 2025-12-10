@@ -15,7 +15,7 @@ unset($_SESSION["add-post-data"]);
 
 <section class="form__section-add">
     <div class="container form__section-container-add">
-        <h2>Agrega un articulo</h2>
+        <h2>Agrega una publicacion</h2>
         <?php if (isset($_SESSION["add-post"])): ?>
             <div class="alert__message error-add">
                 <p>

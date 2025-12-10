@@ -19,6 +19,15 @@ $posts = mysqli_stmt_get_result($stmt);
 ?>
 
 <section class="dashboard">
+     <?php if (isset($_SESSION["add-category-success"])): // Muestra si al agregar una publicacion todo funciono correctamente ?>
+        <div class="alert__message success container">
+            <p>
+                <?= $_SESSION["add-post-success"];
+                unset($_SESSION["add-post-success"]);
+                ?>
+            </p>
+        </div>
+        <?php endif ?>
     <div class="container dashboard__container">
         <button id="show__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-right"></i></button>
         <button id="hide__sidebar-btn" class="sidebar__toggle"><i class="uil uil-angle-left"></i></button>
