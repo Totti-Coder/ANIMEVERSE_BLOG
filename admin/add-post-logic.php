@@ -33,7 +33,6 @@ if (isset($_POST["submit"])) {
         $allowed_files = ["png", "jpeg", "jpg"];
         $extension = explode(".", $thumbnail_name);
         $extension = end($extension);
-        var_dump($extension);
 
         if (in_array($extension, $allowed_files)) {
             // Nos aseguramos de que la imagen no sea muy pesada (+2mb)
@@ -48,4 +47,32 @@ if (isset($_POST["submit"])) {
             $_SESSION["add-post"] = "El archivo deberia ser png, jpg o jpeg";
         }
     }
+
+    // Redirigimos de vuelta con los datos del formulario.
+    if(isset($_SESSION["add-post"])) {
+        $_SESSION["add-post-data"] = $_POST;
+        header("location: " . ROOT_URL . "admin/add-post.php");
+        die();
+    } else {
+        if($is_featured == 1){
+            $zero_all_is_featured_query = "UPDATE posts SET is_featured=?";
+            $stmt= mysqli_prepare($connection, $zero_all_is_featured_query);
+            mysqli_stmt_bind_param($stmt, "i", $is_featured);
+            mysqli_execute($stmt);
+        }
+
+        // Agregamos el post a la base de datos
+        $query = "INSERT INTO posts (title, body, thumbnail, category_id, author_id, is_featured) VALUES (?,?,?,?,?,?,?)";
+        $stmt= mysqli_prepare($connection, $query);
+        mysqli_stmt_bind_param($stmt, "sssiii",$title, $body, $thumbnail_name, $category_id, $author_id, $is_featured);
+        mysqli_stmt_execute($stmt);
+
+        if(!mysqli_errno($connection)){
+            $_SESSION["add-post-success"] = "Se ha agregado una nueva publicacion";
+            header("location: " . ROOT_URL . "admin/");
+            die();
+        }
+    }
 }
+header("location: " . ROOT_URL . "admin/add-post.php");
+die();
