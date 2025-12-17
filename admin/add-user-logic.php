@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
                 // Me aseguro de que el archivo es una imagen
                 $allowed_files = ["png", "jpg", "jpeg"];
                 $extention = explode(".", $avatar_name);
-                $extention = end($extention);
+                $extention = strtolower(end($extention));
                 if (in_array($extention, $allowed_files)) {
                     // Nos aseguramos de que la imagen so sea pesada
                     if ($avatar["size"] < 1000000) {

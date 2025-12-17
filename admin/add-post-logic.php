@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
         // Nos aseguramos de que el archivo sea una imagen
         $allowed_files = ["png", "jpeg", "jpg"];
         $extension = explode(".", $thumbnail_name);
-        $extension = end($extension);
+        $extension = strtolower(end($extension));
 
         if (in_array($extension, $allowed_files)) {
             // Nos aseguramos de que la imagen no sea muy pesada (+2mb)
