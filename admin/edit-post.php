@@ -24,6 +24,8 @@ if(isset($_GET["id"])) {
     <div class="container form__section-container-add">
         <h2>Editar Publicacion</h2>
         <form action="<?= ROOT_URL ?>admin/edit-post-logic.php" enctype="multipart/form-data" method="POST">
+            <input type="hidden" value="<?= $post["id"] ?>" name="id">
+            <input type="hidden" value="<?= $post["thumbnail"] ?>" name="previous_thumbnail_name">
             <input type="text" value="<?= $post["title"] ?>" name="title" placeholder="Titulo">
             <select name="category" id="">
                 <?php while ($category = mysqli_fetch_assoc($categories)): ?>
