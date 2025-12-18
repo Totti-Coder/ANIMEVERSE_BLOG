@@ -15,7 +15,7 @@ if (isset($_GET["id"])) {
     $category = mysqli_fetch_assoc($query_result);
 
     // Eliminamos el usuario de la base de datos
-    $delete_category_query = "DELETE FROM categories WHERE id=?";
+    $delete_category_query = "DELETE FROM categories WHERE id=? LIMIT 1";
     $stmt = mysqli_prepare($connection, $delete_category_query);
     mysqli_stmt_bind_param($stmt, "i", $id);
     mysqli_stmt_execute($stmt);

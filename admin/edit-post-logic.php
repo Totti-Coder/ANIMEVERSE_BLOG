@@ -66,7 +66,7 @@ if (isset($_POST["submit"])) {
         header("location: " . ROOT_URL . "admin/edit-post.php?id=" . $id);
         die();
     } else {
-        // Si es destacado, ponemos todos los demás a 0
+        // Si es una publicacion destacada, ponemos todos los demás a valor 0
         if ($is_featured == 1) {
             $zero_value = 0;
             $zero_all_is_featured_query = "UPDATE posts SET is_featured=?";
@@ -76,7 +76,7 @@ if (isset($_POST["submit"])) {
             mysqli_stmt_close($stmt_zero);
         }
         
-        // Actualizar la publicación en la base de datos
+        // Actualizamos la publicación en la base de datos
         $update_post_query = "UPDATE posts SET title=?, body=?, thumbnail=?, category_id=?, is_featured=? WHERE id=? LIMIT 1";
         $stmt = mysqli_prepare($connection, $update_post_query);
         mysqli_stmt_bind_param($stmt, "sssiii", $title, $body, $thumbnail_to_insert, $category_id, $is_featured, $id);

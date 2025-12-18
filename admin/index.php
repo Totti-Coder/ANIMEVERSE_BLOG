@@ -19,11 +19,43 @@ $posts = mysqli_stmt_get_result($stmt);
 ?>
 
 <section class="dashboard">
-     <?php if (isset($_SESSION["add-category-success"])): // Muestra si al agregar una publicacion todo funciono correctamente ?>
+     <?php if (isset($_SESSION["add-post-success"])): // Muestra si al agregar una publicacion todo funciono correctamente ?>
         <div class="alert__message success container">
             <p>
                 <?= $_SESSION["add-post-success"];
                 unset($_SESSION["add-post-success"]);
+                ?>
+            </p>
+        </div>
+        <?php elseif (isset($_SESSION["edit-post-success"])): // Muestra si al editar una publicacion todo funciono correctamente ?>
+        <div class="alert__message success container">
+            <p>
+                <?= $_SESSION["edit-post-success"];
+                unset($_SESSION["edit-post-success"]);
+                ?>
+            </p>
+        </div>
+        <?php elseif (isset($_SESSION["edit-post"])): // Muestra si al editar una publicacion hubo algun problema ?>
+        <div class="alert__message success container">
+            <p>
+                <?= $_SESSION["edit-post"];
+                unset($_SESSION["edit-post"]);
+                ?>
+            </p>
+        </div>
+        <?php elseif (isset($_SESSION["delete-post-success"])): // Muestra si al eliminar una publicacion todo funciono correctamente ?>
+        <div class="alert__message error container">
+            <p>
+                <?= $_SESSION["delete-post-success"];
+                unset($_SESSION["delete-post-success"]);
+                ?>
+            </p>
+        </div>
+        <?php elseif (isset($_SESSION["delete-post"])): // Muestra si al eliminar una publicacion hubo algun error ?>
+        <div class="alert__message error container">
+            <p>
+                <?= $_SESSION["delete-post"];
+                unset($_SESSION["delete-post"]);
                 ?>
             </p>
         </div>
