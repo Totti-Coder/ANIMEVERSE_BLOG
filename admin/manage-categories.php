@@ -110,13 +110,26 @@ $categories = mysqli_stmt_get_result($stmt);
                     <tbody>
                         <?php while ($category = mysqli_fetch_assoc($categories)): ?>
                             <tr>
-                                <td><?= $category['title'] ?></td>
+                                <td class="<?= $category['id'] == 5 ? 'important-category' : '' ?>">
+    <?= $category['title'] ?></td>
 
-                                <td><a href="<?= ROOT_URL ?>admin/edit-category.php?id=<?= $category['id'] ?>"
-                                        class="btn sm">Edit</a>
+                                <td>
+                                    <?php if ($category['id'] != 5): ?>
+                                        <a href="<?= ROOT_URL ?>admin/edit-category.php?id=<?= $category['id'] ?>"
+                                            class="btn sm">Edit</a>
+                                    <?php else: ?>
+                                        <a class="btn sm uncategorized">Edit</a>
+                                    <?php endif; ?>
                                 </td>
-                                <td><a href="<?= ROOT_URL ?>admin/delete-category.php?id=<?= $category['id'] ?>"
-                                        class="btn sm danger">Delete</a></td>
+
+                                <td>
+                                    <?php if ($category['id'] != 5): ?>
+                                        <a href="<?= ROOT_URL ?>admin/delete-category.php?id=<?= $category['id'] ?>"
+                                            class="btn sm danger">Delete</a>
+                                    <?php else: ?>
+                                        <a class="btn sm danger uncategorized">Delete</a>
+                                    <?php endif; ?>
+                                </td>
                             </tr>
                         <?php endwhile ?>
                     </tbody>

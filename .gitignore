@@ -5,3 +5,15 @@ admin/config/constants.php
 
 FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE,
 FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE
+
+# Utilice un trigger para evitar que se pueda eliminar el id 5 de la base de datos de la tabla categories 
+DELIMITER //
+CREATE TRIGGER impedir_borrar_categoria_principal
+BEFORE DELETE ON categories
+FOR EACH ROW
+BEGIN
+    IF OLD.id = 5 THEN
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No se puede borrar la categoria de respaldo ID 5';
+    END IF;
+END; //
+DELIMITER ;
