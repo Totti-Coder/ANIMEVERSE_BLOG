@@ -1,6 +1,5 @@
 <?php
-require "config/constants.php";
-require "config/database.php";
+require "partials/header.php";
 
 if (isset($_POST["submit"])) {
     // Conseguimos los datos del formulario
@@ -27,7 +26,7 @@ if (isset($_POST["submit"])) {
 
         if (mysqli_errno($connection)) {
             $_SESSION["add-category"] = "No se pudo agregar la categoria";
-            header("location: " . ROOT_URL . "/admin/add-category.php");
+            header("location: " . ROOT_URL . "/admin/manage-categories.php");
             die();
         } else {
             $_SESSION["add-category-success"] = "Categoría añadida correctamente";

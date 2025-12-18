@@ -44,7 +44,7 @@ $posts = mysqli_stmt_get_result($stmt);
             </p>
         </div>
         <?php elseif (isset($_SESSION["delete-post-success"])): // Muestra si al eliminar una publicacion todo funciono correctamente ?>
-        <div class="alert__message error container">
+        <div class="alert__message success container">
             <p>
                 <?= $_SESSION["delete-post-success"];
                 unset($_SESSION["delete-post-success"]);
@@ -56,6 +56,30 @@ $posts = mysqli_stmt_get_result($stmt);
             <p>
                 <?= $_SESSION["delete-post"];
                 unset($_SESSION["delete-post"]);
+                ?>
+            </p>
+        </div>
+        <?php elseif (isset($_SESSION["add-category-success"])): // Muestra si al agregar una categoria todo funciono perfectamente ?>
+        <div class="alert__message success container">
+            <p>
+                <?= $_SESSION["add-category-success"];
+                unset($_SESSION["add-category-success"]);
+                ?>
+            </p>
+        </div>
+        <?php elseif (isset($_SESSION["delete-category-success"])): // Muestra si al eliminar una categoria todo funciono correctamente ?>
+        <div class="alert__message success container">
+            <p>
+                <?= $_SESSION["delete-category-success"];
+                unset($_SESSION["delete-category-success"]);
+                ?>
+            </p>
+        </div>
+        <?php elseif (isset($_SESSION["delete-category"])): // Muestra si al eliminar una categoria se produjo algun error ?>
+        <div class="alert__message error container">
+            <p>
+                <?= $_SESSION["delete-category"];
+                unset($_SESSION["delete-category"]);
                 ?>
             </p>
         </div>

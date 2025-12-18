@@ -23,14 +23,26 @@ if (isset($_GET["id"])) {
             unlink($avatar_path);
         }
     }
-    // Para despues
+
+
     // Hacemos fetch de todos los thumbnail sobre las publicaciones de los usuarios y la eliminamos
+    $thumbnails_query = "SELECT thumbnail FROM posts WHERE author_id=?";
+    $stmt = mysqli_prepare($connection, $thumbnails_query);
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
+    $thumbnails_query_result = mysqli_stmt_get_result($stmt);
 
+    if(mysqli_num_rows($thumbnails_query_result) > 0) {
+        while($thumbnail = mysqli_fetch_assoc($thumbnails_query_result)){
+            $thumbnail_destination_path = "../images/" . $thumbnail["thumbnail"];
+            // Eliminamos la miniatura de la carpeta
+            if($thumbnail_destination_path){
+                unlink($thumbnail_destination_path);
+            }
+        }
+    }
 
-
-
-
-
+    
     // Eliminamos el usuario de la base de datos
     $delete_user_query = "DELETE FROM users WHERE id=?";
     $stmt = mysqli_prepare($connection, $delete_user_query);

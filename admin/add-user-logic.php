@@ -1,6 +1,6 @@
 <?php
-require "config/constants.php";
-require "config/database.php";
+require "partials/header.php";
+
 
 // Obtener los datos del formulario en caso de que haya dado a "CREAR"
 if (isset($_POST["submit"])) {
