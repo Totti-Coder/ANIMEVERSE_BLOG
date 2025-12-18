@@ -15,6 +15,7 @@ if(isset($_SESSION["user-id"])) {
     $user = mysqli_fetch_assoc($query_result);
     $avatar = $user['avatar'] ?? null;
     $is_admin = $user['is_admin'] ?? 0;
+    $name = $user["nombre"] ?? 0;
 }
 ?>
 
@@ -46,10 +47,10 @@ if(isset($_SESSION["user-id"])) {
                 <?php if(isset($_SESSION["user-id"])): ?>
                     <li class="nav__profile">
                     <div class="avatar">
-                        <img src="<?= ROOT_URL . "images/" . $avatar ?>" >
+                        <img src="<?= ROOT_URL . "images/" . $avatar ?>" alt="<?= $name ?>">
                     </div>
                     <ul>
-                        <li><a href="<?= ROOT_URL ?>index.php">Panel de control</a></li>
+                        <li><a href="<?= ROOT_URL ?>/admin/index.php">Panel de control</a></li>
                         <li><a href="<?= ROOT_URL ?>logout.php">Cerrar Sesion</a></li>
                     </ul>
                 </li>
