@@ -7,14 +7,20 @@ $featured_result = mysqli_query($connection, $featured_query);
 $featured = mysqli_fetch_assoc($featured_result);
 
 // Variables del post destacado
-$category_id = $featured["category_id"];
-$category_title = $featured['category_title'];
-$author_avatar = $featured['author_avatar'];
-$author_name = $featured['author_name'];
-$post_title = $featured["title"];
-$post_body = $featured["body"];
-$date_time = $featured['date_time'];
-$post_id = $featured["id"];
+if ($featured) {
+    $category_id = $featured["category_id"];
+    $category_title = $featured['category_title'];
+    $author_avatar = $featured['author_avatar'];
+    $author_name = $featured['author_name'];
+    $post_title = $featured["title"];
+    $post_body = $featured["body"];
+    $date_time = $featured['date_time'];
+    $post_id = $featured["id"];
+    
+    // Array de meses y fecha solo si hay post
+    $meses = ['Jan'=>'Ene','Feb'=>'Feb','Mar'=>'Mar','Apr'=>'Abr','May'=>'May','Jun'=>'Jun','Jul'=>'Jul', 'Aug'=>'Ago','Sep'=>'Sep','Oct'=>'Oct','Nov'=>'Nov','Dec'=>'Dic'];
+    $fecha = date("d M, Y - H:i", strtotime($date_time));
+}
 
 // Array para traducir meses
 $meses = [
@@ -44,7 +50,7 @@ $posts_result = mysqli_query($connection, $posts_query);
     <section class="featured">
         <div class="container featured__container">
             <div class="post__thumbnail">
-                <img src="./images/<?= $featured["thumbnail"] ?>">
+                <img src="./images/<?= $featured["thumbnail"] ?>" alt="Imagen sobre <?= $post_title ?>">
             </div>
             <div class="post__info">
                 <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $category_id ?>"
