@@ -63,7 +63,7 @@ $meses = ['Jan' => 'Ene', 'Feb' => 'Feb', 'Mar' => 'Mar', 'Apr' => 'Abr', 'May' 
                 </article>
             <?php endwhile ?>
         <?php else: ?>
-            <div class="alert__message error">
+            <div class="alert__message error lg">
                 <p>No se encontro ninguna publicacion para esta categoría.</p>
             </div>
         <?php endif ?>

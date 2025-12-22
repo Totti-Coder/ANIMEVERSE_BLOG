@@ -586,6 +586,28 @@ footer ul a:hover {
     font-size: 1.2rem;
 }
 
+/* FUERZO EL CENTRADO PARA CUALQUIER PANTALLA */
+.posts__container .alert__message.lg {
+    grid-column: 1 / -1 !important; 
+    width: 90% !important; 
+    padding: 2rem 1rem !important;
+    max-width: 500px !important; 
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-top: 4rem !important;
+    margin-bottom: 4rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
+.alert__message.lg p {
+    text-align: center !important;
+    margin: 0 !important;
+    flex: 1; 
+}
+
 .alert__message.success {
     background: var(--color-green-light);
     color: var(--color-green);
