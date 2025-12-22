@@ -2,8 +2,12 @@
 config/constants.php
 admin/config/constants.php
 
+ALTER TABLE posts
+ADD CONSTRAINT fk_category 
+FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE
 
-FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE,
+ALTER TABLE posts
+ADD CONSTRAINT fk_author 
 FOREIGN KEY (author_id) REFERENCES users(id) ON DELETE CASCADE
 
 # Utilice un trigger para evitar que se pueda eliminar el id 5 de la base de datos de la tabla categories 
