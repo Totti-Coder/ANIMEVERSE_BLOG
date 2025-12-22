@@ -18,9 +18,18 @@ $post_id = $featured["id"];
 
 // Array para traducir meses
 $meses = [
-    'Jan' => 'Ene', 'Feb' => 'Feb', 'Mar' => 'Mar', 'Apr' => 'Abr',
-    'May' => 'May', 'Jun' => 'Jun', 'Jul' => 'Jul', 'Aug' => 'Ago',
-    'Sep' => 'Sep', 'Oct' => 'Oct', 'Nov' => 'Nov', 'Dec' => 'Dic'
+    'Jan' => 'Ene',
+    'Feb' => 'Feb',
+    'Mar' => 'Mar',
+    'Apr' => 'Abr',
+    'May' => 'May',
+    'Jun' => 'Jun',
+    'Jul' => 'Jul',
+    'Aug' => 'Ago',
+    'Sep' => 'Sep',
+    'Oct' => 'Oct',
+    'Nov' => 'Nov',
+    'Dec' => 'Dic'
 ];
 
 $fecha = date("d M, Y - H:i", strtotime($date_time));
@@ -72,10 +81,10 @@ $posts_result = mysqli_query($connection, $posts_query);
             $post_date_time = $post['date_time'];
             $post_id = $post["id"];
             $post_thumbnail = $post["thumbnail"];
-            
+
             $post_fecha = date("d M, Y - H:i", strtotime($post_date_time));
             ?>
-            
+
             <article class="post">
                 <div class="post__thumbnail">
                     <img src="./images/<?= $post_thumbnail ?>" alt="Imagen sobre <?= $post_title ?>">
@@ -110,14 +119,15 @@ $posts_result = mysqli_query($connection, $posts_query);
 
 <section class="category__buttons">
     <div class="container category__buttons-container">
-        <a href="" class="category__button">Dragon Ball</a>
-        <a href="" class="category__button">One Piece</a>
-        <a href="" class="category__button">Demon Slayer</a>
-        <a href="" class="category__button">Hunter x Hunter</a>
-        <a href="" class="category__button">Jujutsu Kaisen</a>
-        <a href="" class="category__button">Inazuma Eleven</a>
-        <a href="" class="category__button">Naruto</a>
-        <a href="" class="category__button">My Hero Academy</a>
+        <?php
+        $all_categories_query = "SELECT * FROM categories ORDER BY title";
+        $all_categories = mysqli_query($connection, $all_categories_query);
+        ?>
+        <?php while ($category = mysqli_fetch_assoc($all_categories)): ?>
+            <a href="<?= ROOT_URL ?>category-posts.php?id=<?= $category['id'] ?>" class="category__button">
+                <?= $category['title'] ?>
+            </a>
+        <?php endwhile ?>
     </div>
 </section>
 <!-- END OF CATEGORY BUTTONS -->
