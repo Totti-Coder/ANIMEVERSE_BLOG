@@ -33,6 +33,7 @@ if(isset($_SESSION["user-id"])) {
     <!-- MONTSERRAT FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link rel="icon" type="image/ico" href="<?= ROOT_URL ?>images/favicon.ico">
 </head>
 
 <body>

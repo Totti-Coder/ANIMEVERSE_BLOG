@@ -30,7 +30,7 @@ if (isset($_GET["id"])) {
         <h2><?= $post["title"]?></h2>
         <div class="post__author">
             <div class="post__author-avatar">
-                <img src="./images/<?= $post['author_avatar'] ?>" alt="Imagen de">
+                <img src="./images/<?= $post['author_avatar'] ?>" alt="Avatar del usuario">
             </div>
             <div class="post__author-info">
                 <h5>Hecho por: <?= $post["author_name"] ?></h5>
@@ -38,11 +38,10 @@ if (isset($_GET["id"])) {
             </div>
         </div>
         <div class="singlepost__thumbnail">
-            <img src="./images/avatar2.JPG">
+            <img src="./images/<?= $post['thumbnail'] ?>" alt="Imagen acerca de <?= $post_title ?>">
         </div>
         <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam enim illum voluptatum, debitis cumque
-            praesentium dolore, deserunt quas nam fuga qui ducimus pariatur!
+            <?= $post['body'] ?>
         </p>
 
     </div>
